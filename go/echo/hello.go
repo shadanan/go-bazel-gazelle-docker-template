@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 )
 
 func main() {
+	log.Println("Server started on 8080.")
 	http.HandleFunc("/", HelloServer)
 	http.ListenAndServe(":8080", nil)
 }
