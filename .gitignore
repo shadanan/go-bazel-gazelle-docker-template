@@ -1,0 +1,4 @@
+bazel-bin
+bazel-go-docker-image
+bazel-out
+bazel-testlogs
