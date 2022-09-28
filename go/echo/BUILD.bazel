@@ -4,7 +4,7 @@ load("@io_bazel_rules_docker//go:image.bzl", "go_image")
 go_library(
     name = "echo_lib",
     srcs = ["hello.go"],
-    importpath = "github.com/shadanan/go-bazel-gazelle-docker-template/go/echo",
+    importpath = "github.com/example/project/go/echo",
     visibility = ["//visibility:private"],
 )
 
@@ -16,7 +16,8 @@ go_binary(
 
 go_image(
     name = "echo_image",
-    binary = ":echo",
+    embed = [":echo_lib"],
+    goarch = "arm64",
+    goos = "linux",
     importpath = "github.com/shadanan/go-bazel-gazelle-docker-template/go/echo",
-    ports = ["8080"],
 )
